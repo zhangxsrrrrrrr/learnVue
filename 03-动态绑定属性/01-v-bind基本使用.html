@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  {{message}}-->
+<!--  不可以直接在使用mustache语法  <img src="{{imgURL}}" alt="">-->
+<!--  正确使用：使用v-bind:指令，绑定src-->
+  <img :src="imgURL" alt="">
+  <a :href="url">百度一下</a>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      imgURL: 'https://imgcps.jd.com/img-cubic/creative_server_cia/v2/2000366/5216464/FocusFullshop/CkNqZnMvdDEvMTMwOTAyLzMwLzEyMjY4LzcyODQ5LzVmODVhODM1RTE2MmZjMmU4LzAxZjllZjVlZjZjNDg2OTQuanBnEgo5OTktdHlfMF8xMAE47ot6/cr/s/q.jpg',
+      url: 'http://www.baidu.com'
+    }
+  })
+</script>
+</body>
+</html>

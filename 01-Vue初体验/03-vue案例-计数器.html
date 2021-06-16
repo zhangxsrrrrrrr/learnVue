@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>当前计数：{{counter}}</h2>
+    <!--    基本的监听事件-->
+    <!--    <button v-on:click="counter++">+</button>-->
+    <!--    <button v-on:click="counter&#45;&#45;">-</button>-->
+    <button v-on:click="add">+</button>
+    <button v-on:click="subtraction">-</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    // 对象 proxy ，里面可以定义很多东西
+    const obj = {
+        counter: 0
+    }
+    // 如果在methods里面直接使用counter变量，会直接去找script里面的全局变量
+    const app = new Vue({
+        el: '#app',
+        data: obj,
+        // data: {
+        //     counter: 0
+        // },
+        methods: {
+            add: function () {
+
+                console.log('add 被执行');
+                obj.counter++
+            },
+            subtraction: function () {
+                console.log('subtraction 被执行');
+                if (this.counter <= 0) {
+                    console.log('subtraction 无法被执行');
+                    return
+                }
+                obj.counter--
+            }
+        },
+        beforeCreate: function(){
+
+        },
+        created: function () {
+            console.log("执行created")
+        },
+        mounted: function () {
+            console.log("执行mounted")
+        }
+    })
+</script>
+</body>
+</html>
