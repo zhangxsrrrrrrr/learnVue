@@ -17,14 +17,21 @@
   // }
   // console.log(name);
   // 2、没有作用域引起的问题，for的块级,使用函数可以定义一个作用域，只在函数中使用
+  // var btns = document.getElementsByTagName('button');
+  // for (var i=0; i<btns.length; i++) {
+  //   (function(i) {
+  //     btns[i].addEventListener('click',function () {
+  //       console.log('第'+i+'个按钮被点击')
+  //     })
+  //   })(i)
+  // }
+  
+  // 使用let
   var btns = document.getElementsByTagName('button');
-  for (var i=0; i<btns.length; i++) {
-    (function(i) {
-      btns[i].addEventListener('click',function () {
-        console.log('第'+i+'个按钮被点击')
-      })
-    })(i)
-
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click',function () {
+      console.log('第'+i+'个按钮被点击')
+    })
   }
 </script>
 </body>
