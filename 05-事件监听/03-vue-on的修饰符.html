@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <div @click="divClick">
+    aaaaa
+    <!--    .stop阻止冒泡-->
+    <button @click.stop="btnClick">按钮</button>
+  </div>
+  <form>
+    <input type="submit" value="提交" @click.prevent="submitClik">
+  </form>
+<!--  监听某个键盘的键帽,敲enter的时候会监听事件-->
+  <input type="text" @keyup.enter="keyUp">
+  <br>
+  <input type="text" @keyup.13="keyUp">
+
+  <button @click.once="btn2Click">按钮2</button>
+
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    methods: {
+      btnClick() {
+        console.log('---btnClick');
+      },
+      divClick() {
+        console.log('---divClick');
+      },
+      submitClik() {
+        console.log('submitClik');
+      },
+      keyUp() {
+        console.log('keyUp');
+      },
+      btn2Click() {
+        console.log('btn2Click');
+      }
+    }
+  })
+</script>
+</body>
+</html>
