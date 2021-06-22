@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<div id="app">
+	<h2>{{message}}</h2>
+	<ul>
+		<li v-for="item in notes" :key="item">{{item}}</li>
+	</ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+						notes: ['A','B','C']
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<div id="app">
+	<ul>
+		<!--		无索引的遍历-->
+		<li v-for="name in names">{{name}}}</li>
+		<!--		有索引的遍历-->
+		<li v-for="(name, index) in names">{{index+1}}.{{name}}</li>
+	</ul>
+	
+	<ul>
+		<!--		获取key和value(value, key)-->
+		<li v-for="(value,key) in info">{{key}}--->{{value}}</li>
+		<!--		获取key和value(value, key, index)-->
+		<li v-for="(value,key, index) in info">{{index}}--{{key}}--->{{value}}</li>
+	</ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            names: ['zhangsan', 'zhangsi', 'zhangwuji'],
+            info: {
+                name: 'why',
+                age: 28,
+                height: 180
+            }
+        }
+
+    })
+</script>
+</body>
+</html>
